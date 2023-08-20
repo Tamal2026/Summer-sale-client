@@ -177,7 +177,6 @@ document.getElementById('apply-coupon').addEventListener('keyup', function(event
 });
 
 
-
 document.getElementById('total-price').addEventListener('input', updateMakePurchaseButton);
 
 
