@@ -5,57 +5,60 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>85 Summer Sale</title>
     <script src="https://kit.fontawesome.com/5d3b19e49f.js" crossorigin="anonymous"></script>
-<link href="https://cdn.jsdelivr.net/npm/daisyui@3.5.1/dist/full.css" rel="stylesheet" type="text/css" />
+<link href="https://cdn.jsdelivr.net/npm/daisyui@3.5.1/dist/full.css" rel="stylesheet" type="text/css"/>
 <script src="https://cdn.tailwindcss.com"></script>
 
 <style>
     .checked{
         color: orange;
-        
     }
 </style>
 </head>
 
-7u
+
 <body>
 
     <!-- Banner Section Start Here -->
-    <section class="bg-yellow-100 h-[873px]">
-        <div class="flex  justify-center gap-x-20">
-            <div class="text-center my-auto">
-            <h3 class="font-medium">---SALE FEVER---</h3>
-                <h1 class="font-serif font-extrabold text-3xl mt-4">Purchase TK 200 Or <br> Above & Get <span class="text-red-600">20% off</span></h1>
+    <section class="bg-yellow-100 h-auto md:h-[873px]">
+        <div class="flex flex-col md:flex-row justify-center gap-x-0 md:gap-x-20 gap-y-6 md:gap-y-0">
+            <div class="text-center my-auto md:order-2">
+                <h3 class="font-medium">---SALE FEVER---</h3>
+                <h1 class="font-serif font-extrabold text-3xl mt-4 md:text-5xl">Purchase TK 200 Or <br> Above & Get <span class="text-red-600">20% off</span></h1>
                 <h5 class="mt-11">Use Promo Code <span class="bg-red-500 rounded-lg px-4 py-1 text-white">SELL200</span></h5>
             </div>
-            <div>
+            <div class="md:order-1">
                 <img src="./images/Summer 1.png" alt="">
             </div>
         </div>
     </section>
+    
 
-    <main class="mt-24 flex gap-5 ml-5">
+    <main class="mt-24 flex flex-col  gap-5 ml-5">
 <section>
 <div>
    <h1 class="font-mono text-4xl font-extrabold pl-6">Sportswear</h1>
             </div>
             <section class="mt-6"> 
-                <div class="flex  gap-4">
+                <div class="flex flex-col sm:flex-row gap-4">
+                <div class="flex sm:flex-wrap gap-4">
                     <div class="card w-96 bg-base-100 shadow-2xl" id="cap">
                         <div class="bg-slate-200 mx-5 rounded-lg mt-3 py-10">
                             <figure><img src="./images/prod4.png" alt="Shoes" /></figure>
                         </div>
                         <div class="flex justify-center gap-1 mt-2 ">
                             <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star checked "></span>
-                        <span class="fa fa-star"></span>
-                        <span class="fa fa-star"></span>
-                        <span class="fa fa-star"></span>
+                            <span class="fa fa-star checked "></span>
+                            <span class="fa fa-star"></span>
+                            <span class="fa fa-star"></span>
+                            <span class="fa fa-star"></span>
                         </div>
                         <div class="text-center  pt-6">
                             <h1 class="text-xl font-bold" id="cap-title">Sports Black Cap</h1>
                             <p id="cap-price">49.00TK</p>
                         </div>
-                      </div>
+                    </div>
+                </div>
+                
                     <div class="card w-96 bg-base-100 shadow-2xl" id="jursey">
                         <div class="bg-slate-200 mx-5 rounded-lg mt-3 py-10">
                             <figure><img src="./images/prod5.png" alt="Shoes" /></figure>
@@ -92,7 +95,7 @@
             </section>
             <h1 class="font-mono text-4xl font-extrabold pl-6  mt-10">Furniture</h1>
         
-            <div class="flex gap-4 mt-6">
+            <div class="flex flex-col sm:flex-row gap-2 mt-2 lg:gap-4 lg:mt-6">
                 <div class="card w-96 bg-base-100 shadow-2xl" id="chair">
                     <div class="bg-slate-200 mx-5 rounded-lg mt-3 py-10">
                         <figure><img src="./images/prod7.png" alt="Shoes" /></figure>
@@ -150,18 +153,18 @@
 
         </section>
 
-     <div class="pt-8">
+     <div class="pt-8 mt-2">
         <div class="card w-96 bg-base-100 shadow-2xl mt-10">
             <div class="card-body">
-              <h2 class="card-title font-bold">Have Coupon?</h2>
-              <div class="flex ">
-                <input class="border-2 border-gray-300 rounded-tl-md rounded-bl-md py-3 pl-3" placeholder="Coupon Code" type="text" name="" id="apply-coupon">
-                <button id="apply" disabled class=" btn bg-red-400 px-8 rounded-tr-md rounded-br-md  rounded-l-none text-white font-medium" >Apply</button>
-
-              </div>
-           
-              </div>
+                <h2 class="card-title font-bold">Have Coupon?</h2>
+                <div class="flex flex-col sm:flex-row">
+                    <input class="border-2 border-gray-300 rounded-tl-md rounded-bl-md py-3 pl-5 sm:mb-0 mb-0 sm:mr-0 sm:pr-0" placeholder="Coupon Code" type="text" name="" id="apply-coupon">
+                    <button id="apply" disabled class="btn bg-red-400 px-8 rounded-tr-md rounded-br-md rounded-l-none text-white font-medium">Apply</button>
+                </div>
+                
             </div>
+        </div>
+        
             <div class="mt-10">
                 <div class="card w-96 bg-base-100 shadow-xl">
                     <div class="card-body">
@@ -174,7 +177,7 @@
                      <h2>Discount:<span id="discount-price">00</span></h2>
                      <h2>Total:<span id="total">00</span></h2>
                      <hr>
-                     <!-- Open the modal using ID.showModal() method -->
+                   
 <button id="purchase-btn" disabled class="btn bg-red-400 text-white font-medium" onclick="my_modal_1.showModal()" >Make Purchase</button>
 <dialog id="my_modal_1" class="modal">
   <form method="dialog" class="modal-box">
@@ -186,18 +189,17 @@
     <h1 class="text-3xl font-extrabold my-3">Congratulation</h1>
     <h4 class="mb-4">You Purchase The Product</h4
    </div>
-      <!-- if there is a button in form, it will close the modal -->
-      <button id="home-btn"  class=" bg-red-400 w-1/2 mx-auto rounded-lg py-1 mt-2">Go Home</button>
+      
+      <button id="home-btn" class=" bg-red-400 w-1/2 mx-auto rounded-lg py-1 mt-2">Go Home</button>
     </div>
   </form>
 </dialog>
-    
-                      
-                    </div>
-                  </div>
-            </div>
-          </div>
+                     
+</div>
+   </div>
      </div>
+     </div>
+    </div>
      <script src="./JS/summer.js"></script>
     </main>
     

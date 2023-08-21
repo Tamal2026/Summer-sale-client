@@ -23,7 +23,6 @@ function updateTotalElementWithTk(id, amount) {
 }
 
 function resetAll() {
-
     totalPrice = 0;
     updateTotal();
     document.getElementById('calculate-history').innerHTML = '';
@@ -43,24 +42,20 @@ function setTheTotal(totalAmount,total){
     const finalTotal =document.getElementById(totalAmount);
     finalTotal.innerText = total;
 }
-
-
-function updateMakePurchaseButton() {
-    const totalValue = textArea('total-price');
-    const makePurchaseButton = document.getElementById('purchase-btn');
-    
-    if (totalValue > 0) {
-        makePurchaseButton.removeAttribute('disabled');
-    } else {
-        makePurchaseButton.setAttribute('disabled', 'true');
-    }
-}
-
+// function updateMakePurchaseButton() {
+//     const totalValue = textArea('total-price');
+//     const makePurchaseButton = document.querySelector('#purchase-btn'); 
+//     if (totalValue > 0) {
+//         makePurchaseButton.removeAttribute('disabled');
+//     } else {
+//         makePurchaseButton.setAttribute('disabled', 'true');
+//     }
+// }
 let totalPrice = 0;
 document.getElementById('cap').addEventListener('click',function(){
     const capValue =  textArea('cap-price');
     const currentTotalPrice =  textArea('total-price'); 
-    totalPrice += capValue; 
+     totalPrice += capValue; 
     const capPrice = currentTotalPrice + capValue
     currentTotalPrice.innerText = capPrice;
     setTheTotal('total-price', capPrice);
@@ -94,17 +89,16 @@ document.getElementById('shoe').addEventListener('click', function() {
 });
 
 document.getElementById('chair').addEventListener('click',function(){
-    const capValue =  textArea('chair-price');
-    const totalPrice =  textArea('total-price');
-    totalPrice += capValue;
-    const chairPrice = capValue + totalPrice;
+    const chairValue = textArea('chair-price');
+    let totalPrice = textArea('total-price');
+    totalPrice += chairValue;
+    const chairPrice = chairValue + totalPrice;
     chairPrice.innerText = chairPrice;
     setTheTotal('total-price', chairPrice);
     updateTotal();
     calculateHistory('Single Relax Chair')
     updateTotalElementWithTk('total-price',chairPrice);
-})
-
+});
 document.getElementById('childern').addEventListener('click', function() {
     const childernValue = textArea('childern-price');
     const currentTotalPrice =  textArea('total-price'); 
@@ -128,7 +122,6 @@ document.getElementById('sofa').addEventListener('click', function() {
     calculateHistory('Flexible Sofa');
     updateTotalElementWithTk('total-price',sofa);
 });
-
 document.getElementById('apply').addEventListener('click',function() {
     
     const originalPrice = textArea('total-price');
@@ -142,12 +135,9 @@ document.getElementById('apply').addEventListener('click',function() {
     totalElement.innerText = (originalPrice - discountedPrice).toFixed(2);
 });
 
-
 document.getElementById('apply').addEventListener('click', function() {
     const originalPrice = textArea('total-price');
-    
     const discountedPrice = applyDiscount(originalPrice, 20);
-    
     const totalElement = document.getElementById('total');
     totalElement.innerText = discountedPrice;
 });
@@ -156,10 +146,8 @@ document.getElementById('apply').addEventListener('click', function() {
     const originalPrice = textArea('total-price');
     const discountedPrice = applyDiscount(originalPrice, 20);
     const discountAmount = (originalPrice - parseFloat(discountedPrice));
-    
     const totalElement = document.getElementById('total');
     totalElement.innerText = discountedPrice;
-    
     const discountPriceElement = document.getElementById('discount-price');
     discountPriceElement.innerText = discountAmount.toFixed(2) + "Tk";
 });
@@ -173,11 +161,13 @@ document.getElementById('apply-coupon').addEventListener('keyup', function(event
     } else {
         applyBtn.setAttribute('disabled', 'true');
     }
-
 });
-
-
-document.getElementById('total-price').addEventListener('input', updateMakePurchaseButton);
-
-
-updateMakePurchaseButton();
+document.getElementById('total-price').addEventListener('input', function(event) {
+    const totalValue = parseFloat(event.value);
+    const purchaseBtn = document.getElementById('purchase-btn');
+    if (totalValue > 0) {
+        purchaseBtn.removeAttribute('disabled');
+    } else {
+        purchaseBtn.setAttribute('disabled', 'true');
+    }
+});
